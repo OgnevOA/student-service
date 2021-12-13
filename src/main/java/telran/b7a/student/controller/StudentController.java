@@ -19,8 +19,12 @@ import telran.b7a.student.sevice.StudentService;
 
 @RestController
 public class StudentController {
-	@Autowired
 	StudentService studentService;
+
+	@Autowired
+	public StudentController(StudentService studentService) {
+		this.studentService = studentService;
+	}
 
 	@PostMapping("/student")
 	public boolean studentRegister(@RequestBody StudentCredentialsDto studentCredentialsDto) {
